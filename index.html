@@ -3,12 +3,26 @@
 
 <head>
   <title>AI Model Selection Guide - The Graph Courses</title>
-  <style>* {
+  <style> * {
 	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
+}
+
+:root {
+	--gjs-t-color-primary: #cf549e;
+	--gjs-t-color-secondary: #b9227d;
+	--gjs-t-color-accent: #ffb347;
+	--gjs-t-color-success: #28a745;
+	--gjs-t-color-warning: #ffc107;
+	--gjs-t-color-error: #dc3545;
+	--dark-teal: #014d57;
+	--light-teal: #17bebb;
+	--roy-light-orange: #ff9f45;
+	--white: #ffffff;
+	--black: #000000;
 }
 
 body {
@@ -25,11 +39,19 @@ body {
 }
 
 .logo {
-	max-width: 250px;
+	height: 80px;
 	display: block;
 	margin: 0 auto;
-	height: 80px;
+	max-width: 250px;
 	margin-bottom: 20px;
+}
+
+.gjs-t-body {
+	background-color: inherit;
+	color: inherit;
+	font-size: 1rem;
+	line-height: 1.75rem;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer {
@@ -40,18 +62,38 @@ body {
 	color: #666;
 }
 
+.gjs-t-h1 {
+	color: var(--gjs-t-color-secondary);
+	font-size: 1.5rem;
+	line-height: 2.5rem;
+}
+
+.gjs-t-h2 {
+	color: #601843;
+	font-size: 1.2rem;
+	line-height: 1.75rem;
+}
+
+.gjs-t-button {
+	background-color: var(--gjs-t-color-primary);
+	color: white;
+	border-radius: 0.3rem;
+}
+
+.gjs-t-link {
+	color: var(--gjs-t-color-primary);
+	text-decoration: underline;
+}
+
+.gjs-t-border {
+	border-radius: 0.3rem;
+	border-color: #e0e0e0;
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-}
-
-:root {
-	--dark-teal: #014d57;
-	--light-teal: #17bebb;
-	--roy-light-orange: #ff9f45;
-	--white: #ffffff;
-	--black: #000000;
 }
 
 a {
@@ -601,6 +643,11 @@ th {
 #iwr3i {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	position: static;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
 }
 
 #isy5hc {
@@ -693,12 +740,12 @@ th {
   <meta name="generator" content="GrapesJS Studio" />
 </head>
 
-<body id="idf2">
+<body id="idf2" class="gjs-t-body">
   <div id="ib4sx" class="container">
     <div class="header"><img src="https://raw.githubusercontent.com/the-graph-courses/aiw_materials/refs/heads/main/assets/graph_courses_logo.png" alt="The Graph Courses Logo" class="logo"/>
       <h1 id="iwr3i" class="main-title">🤖 Choosing the Right AI Model</h1>
-      <h1 id="isy5hc" class="main-title"><span id="in5kpx"><b>Characteristics of the LLM Provider Landscape</b></span>
-      </h1>
+      <h1 id="isy5hc" class="main-title">
+        <span id="in5kpx"><strong id="itvlj">Characteristics of the LLM Provider Landscape</strong></span></h1>
       <p id="i3ll1" class="attribution">thegraphcourses.org • Generative AI for Work &amp; Research</p>
       <p id="ik2ma">Last updated: May 28, 2025</p>
     </div>
@@ -716,9 +763,9 @@ th {
         <strong id="itlet7">This guide teaches you to evaluate the best models for your specific use case.<br/><br/></strong>
       </div>
     </div>
-    <div class="guide-section">
+    <div class="guide-section" id="irsqm">
       <h2 class="guide-title">Key Factors to Consider</h2>
-      <div class="guide-grid">
+      <div class="guide-grid" id="i6j5h">
         <div class="guide-card">
           <h3><span class="icon">🏆</span> Performance</h3>
           <p>Check public leaderboards to shortlist candidates:</p>
@@ -729,10 +776,14 @@ th {
         <div class="guide-card">
           <h3><span class="icon">💰</span> Price</h3>
           <p>Pricing typically listed <span class="highlight">per million tokens</span></p>
-          <p><strong>Important:</strong> Consider input vs output token costs separately</p>
+          <p id="i7uvmh"><strong id="ih6b4h">Token = chunk of text</strong> (see <a
+              href="https://platform.openai.com/tokenizer" target="_blank" rel="noopener"
+              id="i1is62">platform.openai.com/tokenizer</a>)</p>
+          <p id="iv57bv"><span class="highlight">100 tokens ≈ 75 words</span></p>
+          <p id="irfc5">Input and output tokens priced separately</p>
           <p><strong>Strategy:</strong> Test cheap models first before moving to premium options</p>
         </div>
-        <div class="guide-card">
+        <div class="guide-card" id="i3kde">
           <h3><span class="icon">⚡</span> Speed</h3>
           <p>Cheap, smaller models are usually faster but less intelligent</p>
           <p><strong>For chatbots &amp; interactive apps:</strong> Consider fast models for better UX</p>
@@ -740,61 +791,16 @@ th {
         </div>
         <div class="guide-card">
           <h3><span class="icon">📝</span> Context Limit</h3>
-          <p><strong>Token = chunk of text</strong> (see <a href="https://platform.openai.com/tokenizer"
-              target="_blank">platform.openai.com/tokenizer</a>)</p>
-          <p><span class="highlight">100 tokens ≈ 75 words</span></p>
           <p>Modern models have huge limits (1M tokens ~ entire Bible), but fitting in context ≠ good responses.</p>
-          <p><strong>Pro tip:</strong> Use RAG to surpass context limits effectively.</p>
+          <p id="iizt0l">Applications can use RAG to surpass context limits effectively.</p>
         </div>
         <div class="guide-card">
-          <h3><span class="icon">🔓</span> Open vs Closed</h3>
+          <h3 id="i0c12k"><span class="icon">🔓</span> Open vs Closed</h3>
           <p><strong>Open-weight models:</strong></p>
           <p>• Often cheaper to run</p>
           <p>• Can deploy on your infrastructure</p>
           <p>• More control and customization</p>
           <p><strong>Closed models:</strong> Typically more powerful but pricier</p>
-        </div>
-      </div>
-    </div>
-    <div class="guidelines-section">
-      <h2 class="guide-title" id="iu0swx">Some Rules of Thumb</h2>
-      <div class="guide-grid" id="izqsai">
-        <div class="guide-card">
-          <h3><span class="icon">🎯</span> Start with Major Providers</h3>
-          <p>Begin with models in the main dropdowns of public-facing UIs from major providers (OpenAI, Anthropic,
-            Google).</p>
-          <p><strong>Why:</strong> With 400+ models on platforms like OpenRouter, starting with the flagship models
-            helps narrow your choices.</p>
-        </div>
-        <div class="guide-card">
-          <h3><span class="icon">🤝</span> Stick with Familiar Ecosystems</h3>
-          <p>Different providers' offerings are quite similar these days, so consider picking the company whose apps you
-            already use.</p>
-          <p><strong>Note:</strong> If you use Copilot in Microsoft, that's likely OpenAI's models under the hood.</p>
-        </div>
-        <div class="guide-card">
-          <h3><span class="icon">🚀</span> Google: Best Performance &amp; Value</h3>
-          <p>As of writing, Google has some of the best benchmarking models:</p>
-          <p>• <strong>Gemini 2.5 Pro:</strong> Top performance</p>
-          <p>• <strong>Gemini 2.5 Flash:</strong> One of the cheapest good models</p>
-          <p>Great starting point if you have no other preferences.</p>
-        </div>
-        <div class="guide-card">
-          <h3><span class="icon">💡</span> Our Favorite: Claude 4 Sonnet</h3>
-          <p>While not always top on benchmarks, it excels at:</p>
-          <p>• Programming and design tasks</p>
-          <p>• Smart responses without being too chatty</p>
-          <p>• Often <strong>lower actual usage costs</strong> than 2.5 Pro due to efficiency</p>
-          <p><em>Note: 2.5 Pro is a thinking model, which can be verbose</em></p>
-        </div>
-        <div class="guide-card">
-          <h3><span class="icon">⚠️</span> API vs Chat Interface</h3>
-          <p><strong>Important distinction:</strong> These recommendations are for API usage.</p>
-          <p>For chat interfaces, we actually pay for ChatGPT because it offers:</p>
-          <p>• Superior user interface</p>
-          <p>• Deep research capabilities</p>
-          <p>• Image generation &amp; code execution</p>
-          <p>• Easy-to-use voice mode</p>
         </div>
       </div>
     </div>
@@ -834,7 +840,7 @@ th {
               <td class="model-name">Qwen3 235B A22B thinking</td>
             </tr>
             <tr>
-              <td><strong>Performance (MMLU)</strong></td>
+              <td><strong id="i1xa8g">Performance (MMLU)</strong></td>
               <td class="chart-cell">
                 <div class="bar-container">
                   <div id="io5qjv" class="bar performance-bar">
@@ -1017,15 +1023,15 @@ th {
               <td><span class="status-badge closed">Closed</span></td>
               <td><span class="status-badge closed">Closed</span></td>
               <td><span class="status-badge closed">Closed</span></td>
-              <td><span class="status-badge closed">Closed</span></td>
+              <td id="ig11ql"><span class="status-badge closed">Closed</span></td>
               <td><span class="status-badge open">Open</span></td>
               <td><span class="status-badge open">Open</span></td>
             </tr>
             <tr>
               <td><strong>Links</strong></td>
-              <td class="links"><a href="https://artificialanalysis.ai/models/gpt-4-1-mini"
-                  target="_blank">Analysis</a><a href="https://openrouter.ai/openai/gpt-4.1-mini"
-                  target="_blank">OpenRouter</a></td>
+              <td class="links"><a href="https://artificialanalysis.ai/models/gpt-4-1-mini" target="_blank" id="ikc3kg">
+                  <div>Analysis</div>
+                </a><a href="https://openrouter.ai/openai/gpt-4.1-mini" target="_blank">OpenRouter</a></td>
               <td class="links"><a href="https://artificialanalysis.ai/models/o4-mini" target="_blank">Analysis</a><a
                   href="https://openrouter.ai/openai/o4-mini-high" target="_blank">OpenRouter</a></td>
               <td class="links"><a href="https://artificialanalysis.ai/models/claude-3-5-haiku"
@@ -1051,9 +1057,51 @@ th {
         </table>
       </div>
     </div>
+    <div class="guidelines-section" id="ir8to9">
+      <h2 id="iu0swx" class="guide-title">Some Rules of Thumb</h2>
+      <div id="izqsai" class="guide-grid">
+        <div class="guide-card">
+          <h3><span class="icon">🎯</span> Start with Major Providers</h3>
+          <p>Begin with models in the main dropdowns of public-facing UIs from major providers (OpenAI, Anthropic,
+            Google).</p>
+          <p><strong>Why:</strong> With 400+ models on platforms like OpenRouter, starting with the flagship models
+            helps narrow your choices.</p>
+        </div>
+        <div class="guide-card">
+          <h3><span class="icon">🤝</span> Stick with Familiar Ecosystems</h3>
+          <p>Different providers' offerings are quite similar these days, so consider picking the company whose apps you
+            already use.</p>
+          <p><strong>Note:</strong> If you use Copilot in Microsoft, that's likely OpenAI's models under the hood.</p>
+        </div>
+        <div class="guide-card">
+          <h3><span class="icon">🚀</span> Google: Best Performance &amp; Value</h3>
+          <p>As of writing, Google has some of the best benchmarking models:</p>
+          <p>• <strong>Gemini 2.5 Pro:</strong> Top performance</p>
+          <p>• <strong>Gemini 2.5 Flash:</strong> One of the cheapest good models</p>
+          <p>Great starting point if you have no other preferences.</p>
+        </div>
+        <div class="guide-card">
+          <h3><span class="icon">💡</span> Our Favorite: Claude 4 Sonnet</h3>
+          <p>While not always top on benchmarks, it excels at:</p>
+          <p>• Programming and design tasks</p>
+          <p>• Smart responses without being too chatty</p>
+          <p>• Often <strong>lower actual usage costs</strong> than 2.5 Pro due to efficiency</p>
+          <p><em>Note: 2.5 Pro is a thinking model, which can be verbose</em></p>
+        </div>
+        <div class="guide-card">
+          <h3><span class="icon">⚠️</span> API vs Chat Interface</h3>
+          <p><strong>Important distinction:</strong> These recommendations are for API usage.</p>
+          <p>For chat interfaces, we actually pay for ChatGPT because it offers:</p>
+          <p>• Superior user interface</p>
+          <p>• Deep research capabilities</p>
+          <p>• Image generation &amp; code execution</p>
+          <p>• Easy-to-use voice mode</p>
+        </div>
+      </div>
+    </div>
     <div class="footer">
       <p><strong>thegraphcourses.org</strong> • Generative AI Class</p>
-      <p>Data and AI skills for health and life sciences</p>
+      <p id="iyrw9g">Data and AI skills åfor health and life sciences</p>
     </div>
   </div>
 </body>
